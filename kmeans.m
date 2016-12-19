@@ -56,22 +56,18 @@ function [R,C] = kmeans(S, k)
 	
 end
 
+# ==TEST== #
+
 # row: feature
 # col: observation
 #S = [1,2,3,110,120; 1,2,3,110,120];
 
 S = randi([1 100], 2, 60);
-
-#scatter(S(1,:), S(2,:))
-#print("MyPNG.png", "-dpng")
-
-
-#plotmatrix(S(1,:), S(2,:));
 k = 3;
-
-
 [R, C] = kmeans(S, k)
 
+
+# ==PLOT== #
 
 plot(S(1,R==1),S(2,R==1),'r.','MarkerSize',12)
 hold on
@@ -79,6 +75,7 @@ plot(S(1,R==2),S(2,R==2),'b.','MarkerSize',12)
 hold on
 plot(S(1,R==3),S(2,R==3),'g.','MarkerSize',12)
 hold on
+
 plot(C(:,1),C(:,2),'kx',...
      'MarkerSize',15,'LineWidth',3)
 print("MyPNG.png", "-dpng")
